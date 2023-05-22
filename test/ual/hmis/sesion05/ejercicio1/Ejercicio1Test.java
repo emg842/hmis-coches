@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class Ejercicio1Test {
+	
+	//Unifico el ejercicio, abajo esta comentada la otra posibilidad
     
 	@Test
 	void testObjectNotNull() {
@@ -19,40 +21,70 @@ public class Ejercicio1Test {
 	
 	@ParameterizedTest
 	@ValueSource(ints = {1, 7, 11, 13})
-	void testPrimos(int numero) {
+	void testClaseEquivalenciaNoMultiplo(int numero) {
 
 		Ejercicio1 ejercicio1 = new Ejercicio1();
-		
+
 		assertEquals(numero, ejercicio1.transformar(numero));
 	}
 	
 	@ParameterizedTest
-	@CsvSource({"-2, -1","-8, -1","2, 1","8, 1"})
-	void testMultiplo2(int numero, int resultado) {
+	@CsvSource({"-4, -1",
+				"-2, -1",
+				"2, 1",
+				"4, 1",
+				"-6, -1",
+				"-3, -1",
+				"3, 1",
+				"6, 1",
+				"-10, -1",
+				"-5, -1",
+				"5, 1",
+				"10, 1"})
+	void testClaseEquivalenciaMultiplo(int numero, int resultado) {
 
 		Ejercicio1 ejercicio1 = new Ejercicio1();
 		int numeroTransformado = ejercicio1.transformar(numero);
-		
-		assertEquals(resultado, numeroTransformado);
-	}
-	
-	@ParameterizedTest
-	@CsvSource({"-3, -1","-6, -1","3, 1","6, 1"})
-	void testMultiplo3 (int numero, int resultado) {
 
-		Ejercicio1 ejercicio1 = new Ejercicio1();
-		int numeroTransformado = ejercicio1.transformar(numero);
-		
-		assertEquals(resultado, numeroTransformado);
-	}
-	
-	@ParameterizedTest
-	@CsvSource({"-5, -1","-10, -1","5, 1","10, 1"})
-	void testMultiplo5(int numero, int resultado) {
-
-		Ejercicio1 ejercicio1 = new Ejercicio1();
-		int numeroTransformado = ejercicio1.transformar(numero);
-		
 		assertEquals(resultado, numeroTransformado);
 	}
 }
+	
+	
+//	void testPrimos(int numero) {
+//
+//		Ejercicio1 ejercicio1 = new Ejercicio1();
+//		
+//		assertEquals(numero, ejercicio1.transformar(numero));
+//	}
+//	
+//	@ParameterizedTest
+//	@CsvSource({"-2, -1","-8, -1","2, 1","8, 1"})
+//	void testMultiplo2(int numero, int resultado) {
+//
+//		Ejercicio1 ejercicio1 = new Ejercicio1();
+//		int numeroTransformado = ejercicio1.transformar(numero);
+//		
+//		assertEquals(resultado, numeroTransformado);
+//	}
+//	
+//	@ParameterizedTest
+//	@CsvSource({"-3, -1","-6, -1","3, 1","6, 1"})
+//	void testMultiplo3 (int numero, int resultado) {
+//
+//		Ejercicio1 ejercicio1 = new Ejercicio1();
+//		int numeroTransformado = ejercicio1.transformar(numero);
+//		
+//		assertEquals(resultado, numeroTransformado);
+//	}
+//	
+//	@ParameterizedTest
+//	@CsvSource({"-5, -1","-10, -1","5, 1","10, 1"})
+//	void testMultiplo5(int numero, int resultado) {
+//
+//		Ejercicio1 ejercicio1 = new Ejercicio1();
+//		int numeroTransformado = ejercicio1.transformar(numero);
+//		
+//		assertEquals(resultado, numeroTransformado);
+//	}
+//}
